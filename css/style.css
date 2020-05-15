@@ -1,0 +1,189 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  }
+
+body {
+  line-height: 1;
+  xbackground:white url('/images/computerdemon.logo.gif') no-repeat center 80px;
+  background-color:white;
+  }
+
+ol, ul {
+  list-style: none;
+  }
+
+blockquote, q {
+  quotes: none;
+  }
+
+a, a:visited { color:#000; }
+a:hover { color:#666; }
+ul, li { padding:5px 0; }
+p { padding:5px 0; line-height:1.2em; }
+
+body, div, ul, p, li {
+  font-family:"Trebuchet MS", Helvetica, sans-serif;
+  }
+
+h3, h4, h5, h6 {
+  padding:25px 0;
+  }
+
+#content {
+  width:750px; 
+  margin:20px auto; 
+  clear:both; 
+  text-align:center;
+  }
+
+#inset {
+  margin-top:10px;
+  }
+
+.slidingpanel_tab {
+	background: #aaa url('/images/demon-noise.gif') no-repeat top left;
+	color: #ddd;
+	padding: 3px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+#hero { 
+  text-align:center; 
+  margin: 100px auto; 
+  }
+
+#cornerLogo {
+  position:absolute;
+  top:40px;
+  left:20px;
+  }
+
+#clickBlock {
+  text-align:center; 
+  margin: 150px auto; 
+  width:150px;
+  height:150px;
+  }
+
+#projects {
+  text-align:center;
+  margin:250px auto;
+  padding-top:23px;
+  width:730px;
+  }
+
+ul.tags li {
+  display:inline;
+  font-size:85%;
+  font-style:italic;
+  }
+
+.project {
+	padding: 30px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        width:290px;
+        height:100px;
+        float:left;
+        border:1px solid #aaa;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+.hidden {
+  display:none;
+  }
+
+.visible {
+  display:block;
+  }
+
+.panel {
+  width: 200px;
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  z-index:100;
+  }
+
+.clear {
+  clear:both;
+  }
+
+/***** Birthday Calendar styles ******/
+.headerCell {width:100px; margin:2px; background-color:#efedea; border-bottom:1px solid black; border-right:1px solid black; float:left;}
+.dayCell {width:100px; height:100px; margin:2px; background-color:#efedea; border-bottom:1px solid black; border-right:1px solid black; float:left;}
+.dayCellBDay {width:100px; height:100px; margin:2px; background-color:#99EE99; border-bottom:1px solid black; border-right:1px solid black; float:left;}
+.dayCell p, .dayCellBDay p {padding-left:10px; text-align:left;}
+#bottomBox li {display:inline;}
+
+/***** Dewdny Wallpaper styles ******/
+ul.colorpick {float:left;text-align:right;padding:0 30px;}
+.colorBox {width:600px; margin:10px auto; text-align:center;}
+.wpaper img {float:left;}
+.wpaper {margin:0 auto;}
+.wfloater {margin:0 auto; width:150px;}
+.wfloater img {float:left;}
+
+/***** Talk Like A Pirate styles ****/
+div.pirate { width:400px; text-align:center; margin:0 auto;}
+div.pirate p { text-align:left; }
+
+/***** Counter Styles            ****/
+#decrement { position:fixed; left:170px; top:0px; }
+#increment { position:fixed; right:200px; top:0px; }
+#container { margin:30px auto; xborder:1px solid red; background:#EEE; }
+#display { margin:0 auto; width:750px; xborder:1px solid pink; }
+#display div { float:left; width:56px; height:50px; margin-left:15px; border:1px solid white; text-align:center; background:#DADADA; }
+#clear {clear:both;}
+.buttontype { xborder:1px solid green; font-size:50px; width:20px; height:20px; padding-top:20px; }
+.numbertype .block { border:1px solid green; font-size:40px; }
+.block { margin-top:15px; padding-top:10px; }
+.buttontype a { display:block; width:50px; height:50px; text-align:center; border:1px solid #666; background:#EEE; text-decoration:none; }
+.buttontype a:hover { background:#DADADA; text-decoration:none; }
+

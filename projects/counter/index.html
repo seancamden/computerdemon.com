@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>computerdemon.com</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="shortcut icon" href="favicon.png" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<script type="text/javascript" src="/js/jquery-1.4.3.min.js"></script>
+<script type="text/javascript">
+var int = 0;
+$(document).ready(function() {
+  $('#increment').click(function(event) {
+    event.preventDefault();
+    if (int >= 0) {
+      int++;
+      $('#display').append('<div class="block">' + int + '<\/div>');
+    }
+  });
+  $('#decrement').click(function(event) {
+    event.preventDefault();
+    if (int > 0) {
+      $("div.block").remove(':contains(' + int + ')');
+      int--;
+    }
+  });
+});
+</script>
+</head>
+<body>
+<h1>A Counter</h1>
+<div id="increment" class="buttontype"><a href="#">+</a></div>
+<div id="decrement" class="buttontype"><a href="#">-</a></div>
+<div id="container">
+  <div id="display" class="numbertype"><div class="block">0</div></div>
+  <div id="clear">&nbsp;</div>
+</div>
+</body>
+</html>

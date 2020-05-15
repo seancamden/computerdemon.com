@@ -1,0 +1,7 @@
+<p>expr="test_condition"</p>
+
+<p>The test_condition may take any of the forms defined here.</p>
+
+<p>If the test_condition result is TRUE then the lines following this element are included in the output until either an #elif (if present), #else (if present) or #endif elements are reached.</p>
+
+<p>Note: Since Apache 2.3.13 the test_condition syntax has changed - see notes under tests below.</p>

@@ -1,0 +1,128 @@
+/*
+ * jQuery Sliding Panel
+ * version: 1.1.0 (2010-08-02)
+ * @requires jQuery v1.3.2 or later
+ * @requires jQueryUI v1.7.2 or later
+ *
+ * Examples and documentation at: http://blog.pierrejeanparra.com/jquery-plugins/sliding-panel/
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+;(function($) {
+	
+	$.fn.slidingPanel = function(options) {
+		var params, bindHover;
+		
+		if (!this.length) {
+			return this;
+		}
+			
+		$.slidingPanel = {
+			defaults: {
+				position: 'right',
+				offset: 0,
+				speed: 250,
+				timeout: 500,
+				hideTriggerClass: 'slidingpanel_hide_trigger',
+				wrapperClass: 'slidingpanel_wrapper',
+				slidingElementClass: 'slidingpanel_element',
+				tabClass: 'slidingpanel_tab',
+				wrapperTemplate: '<div></div>',
+				tabTemplate: '<div></div>',
+				tabText: 'E<br/>X<br/>A<br/>M<br/>P<br/>L<br/>E',
+				openByDefault: true
+			},
+			defaultHorizontalTabText: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+			effectDirection: 'right',
+			show: function(slidingElement) {
+				$.data(slidingElement, 'cancelHide', true);
+				$(slidingElement).show('slide', {direction: $.slidingPanel.effectDirection}, params.speed);
+				$(slidingElement).closest('.' + params.wrapperClass).one('mouseleave', function() {
+					$.slidingPanel.hide(slidingElement);
+				});
+			},
+			hide: function(slidingElement) {
+				$.data(slidingElement, 'cancelHide', false);
+				setTimeout(function() {
+					if (!$.data(slidingElement, 'cancelHide')) {
+						$(slidingElement).hide('slide', {direction: $.slidingPanel.effectDirection}, params.speed);
+					}
+				}, params.timeout);
+				$(slidingElement).closest('.' + params.wrapperClass).one('mouseenter', function() {
+					$.slidingPanel.show(slidingElement);
+				});
+			}
+		};
+		
+		bindHover = function(slidingElement) {
+			$(slidingElement).closest('.' + params.wrapperClass).one('mouseenter', function() {
+				$.slidingPanel.show(slidingElement);
+			});
+		};
+		
+		params = $.extend($.slidingPanel.defaults, options || {});
+		
+		return this.each(function() {
+			var slidingElement = this,
+				slidingElementCSS,
+				wrapperCSS,
+				tabCSS;
+			
+			switch (params.position) {
+				case 'top':
+					slidingElementCSS = {position: 'absolute', top: '0', marginTop: '16px'};
+					wrapperCSS = {position: 'absolute', top: params.offset + 'px'};
+					tabCSS = {position: 'absolute', top: '0'};
+					$.slidingPanel.effectDirection = 'up';
+					if (!options.tabText) {
+						params.tabText = $.slidingPanel.defaultHorizontalTabText;
+					}
+					break;
+				case 'right':
+					slidingElementCSS = {position: 'absolute', right: '0', marginRight: '16px'};
+					wrapperCSS = {position: 'absolute', right: params.offset + 'px'};
+					tabCSS = {position: 'absolute', right: '0'};
+					$.slidingPanel.effectDirection = 'right';
+					break;
+				case 'bottom':
+					slidingElementCSS = {position: 'absolute', bottom: '0', marginBottom: '16px'};
+					wrapperCSS = {position: 'absolute', bottom: params.offset + 'px'};
+					tabCSS = {position: 'absolute', bottom: '0'};
+					$.slidingPanel.effectDirection = 'down';
+					if (!options.tabText) {
+						params.tabText = $.slidingPanel.defaultHorizontalTabText;
+					}
+					break;
+				case 'left':
+					slidingElementCSS = {position: 'absolute', left: '0', marginLeft: '16px'};
+					wrapperCSS = {position: 'absolute', left: params.offset + 'px'};
+					tabCSS = {position: 'absolute', left: '0'};
+					$.slidingPanel.effectDirection = 'left';
+					break;
+			}
+			
+			$(slidingElement).addClass(params.slidingElementClass).css(slidingElementCSS).wrap($(params.wrapperTemplate).clone().addClass(params.wrapperClass))
+				.closest('.slidingpanel_wrapper').css(wrapperCSS)
+				.append($(params.tabTemplate).clone().addClass(params.tabClass).css(tabCSS).append(params.tabText));
+			
+			if (params.openByDefault) {
+				// If there is no trigger to hide the panel, then the tab is going to assume that role
+				if ($('.' + params.hideTriggerClass).length == 0) {
+					$('.' + params.tabClass).addClass(params.hideTriggerClass);
+				}
+				
+				$('.' + params.hideTriggerClass).one('click', function() {
+					$(slidingElement).hide('slide', {direction: $.slidingPanel.effectDirection}, params.speed, function() {
+						bindHover(slidingElement);
+					});
+				});
+			}
+			else {
+				$(slidingElement).hide();
+				bindHover(slidingElement);
+			}
+		});
+	};
+
+})(jQuery);
